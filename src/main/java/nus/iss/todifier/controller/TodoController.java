@@ -15,6 +15,8 @@ import nus.iss.todifier.model.Todo;
 import nus.iss.todifier.service.TodoService;
 import nus.iss.todifier.util.FileManagement;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class TodoController {
@@ -44,6 +46,15 @@ public class TodoController {
 
         return "redirect:/";
     }
+
+    @PostMapping("/delete")
+    public String deleteFromDatabase(@RequestParam("selected") List<String> selected, RedirectAttributes redirectAttributes) {
+       
+        todoServ.deleteEntries(selected);
+
+        return "redirect:/";
+    }
+    
     
     
 }

@@ -30,6 +30,10 @@ public class TodoService {
         todoRepo.deleteEntry(id);
     }
 
+    public void deleteEntries(List<String> ids){
+        todoRepo.deleteEntries(ids);
+    }
+
     public Todo getById(String id){ //Fetch by ID
         return todoRepo.getById(id);
     }

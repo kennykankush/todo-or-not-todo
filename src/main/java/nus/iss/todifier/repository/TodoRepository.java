@@ -40,6 +40,12 @@ public class TodoRepository {
 
     }
 
+    public void deleteEntries(List<String> ids){
+        for (String id : ids){
+            deleteEntry(id);
+        }
+    }
+
     public Todo getById(String id){ //Fetch by ID
         return (Todo) template.opsForHash().get(todoKey, id);
     }
