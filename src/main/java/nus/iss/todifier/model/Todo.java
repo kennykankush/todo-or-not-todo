@@ -1,5 +1,10 @@
 package nus.iss.todifier.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,12 +15,23 @@ import lombok.NoArgsConstructor;
 public class Todo {
     
     private String id;
+
+    @NotNull(message = "Name cannot be null")
+    @Size(min = 5, max = 255, message = "Name must be between 5 and 255 characters")
     private String name;
+
+    @NotNull(message = "Description cannot be null")
+    @Size(min = 5, max = 500, message = "Description must be between 5 and 500 characters")
     private String description;
+
     private String dueDate;
+
     private String priority;
+
     private String status;
+
     private String createdAt;
+    
     private String updatedAt;
 
     public String getId() {
